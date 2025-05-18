@@ -1,0 +1,764 @@
+/* Modern Professional Theme with Enhanced Visual Effects */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #1a1a2e;
+    --text-color: #ecf0f1;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --glow-color: rgba(52, 152, 219, 0.5);
+    --success-color: #2ecc71;
+    --warning-color: #f1c40f;
+    --error-color: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--background-color), #16213e);
+    color: var(--text-color);
+    padding: 2rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Enhanced Background Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, 
+            rgba(52, 152, 219, 0.15) 0%,
+            transparent 50%),
+        radial-gradient(circle at 80% 80%, 
+            rgba(231, 76, 60, 0.15) 0%,
+            transparent 50%);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    animation: backgroundShift 15s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+.branding {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px var(--glow-color),
+                 0 0 20px var(--glow-color),
+                 0 0 30px var(--glow-color);
+    animation: glow 2s ease-in-out infinite alternate;
+    position: relative;
+}
+
+.branding::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+    border-radius: 3px;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--glow-color),
+                     0 0 20px var(--glow-color),
+                     0 0 30px var(--glow-color);
+    }
+    to {
+        text-shadow: 0 0 20px var(--glow-color),
+                     0 0 30px var(--glow-color),
+                     0 0 40px var(--glow-color);
+    }
+}
+
+h1 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* Enhanced Upload Section */
+.upload-section {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.upload-section:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Drop Zone */
+.drop-zone {
+    border: 2px dashed var(--secondary-color);
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: rgba(52, 152, 219, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.drop-zone::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.drop-zone:hover::before {
+    left: 100%;
+}
+
+.drop-zone.drag-over {
+    background: rgba(52, 152, 219, 0.1);
+    border-color: var(--accent-color);
+    transform: scale(1.02);
+    box-shadow: 0 0 30px var(--glow-color);
+}
+
+.upload-icon {
+    font-size: 4rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px var(--glow-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.browse-btn {
+    background: var(--secondary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    box-shadow: 0 0 20px var(--glow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.browse-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.browse-btn:hover::before {
+    left: 100%;
+}
+
+.browse-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px var(--glow-color);
+}
+
+/* Enhanced File Info */
+.file-info {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 1.5rem 0;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.file-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.file-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.file-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 0.8rem 0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.file-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+.remove-file {
+    color: var(--error-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: rgba(231, 76, 60, 0.1);
+}
+
+.remove-file:hover {
+    transform: scale(1.2);
+    background: rgba(231, 76, 60, 0.2);
+    box-shadow: 0 0 10px var(--error-color);
+}
+
+/* Enhanced Process Button */
+.process-btn {
+    background: var(--accent-color);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 2rem auto;
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.process-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.process-btn:hover::before {
+    left: 100%;
+}
+
+.process-btn:hover:not(:disabled) {
+    background: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(231, 76, 60, 0.7);
+}
+
+.process-btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Enhanced Progress Container */
+.progress-container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 1.5rem 0;
+    display: none;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    height: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.progress {
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 15px var(--glow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: progressShine 1.5s infinite;
+}
+
+@keyframes progressShine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Enhanced Result Section */
+.result-section {
+    display: none;
+    margin-top: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.processed-file {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.processed-file:hover {
+    transform: translateX(5px);
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+.download-btn {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--glow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.download-btn:hover::before {
+    left: 100%;
+}
+
+.download-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+.download-all-btn {
+    background: var(--secondary-color);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: none;
+    margin: 2rem auto;
+    box-shadow: 0 0 20px var(--glow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.download-all-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.download-all-btn:hover::before {
+    left: 100%;
+}
+
+.download-all-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px var(--glow-color);
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    .branding {
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .drop-zone {
+        padding: 2rem 1rem;
+    }
+
+    .upload-icon {
+        font-size: 3rem;
+    }
+
+    .browse-btn,
+    .process-btn,
+    .download-all-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+/* Enhanced Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 6px;
+    border: 3px solid var(--background-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Add these styles after the .drop-zone styles */
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.file-name {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    word-break: break-all;
+}
+
+.file-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 0.8rem 0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.file-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+.file-list li:hover .file-icon {
+    transform: scale(1.2);
+}
+
+/* Enhanced drop zone animations */
+.drop-zone {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.drop-zone::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    background: linear-gradient(45deg, 
+        transparent 0%,
+        rgba(52, 152, 219, 0.1) 50%,
+        transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.drop-zone.drag-over::after {
+    opacity: 1;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+/* File upload success/error animations */
+@keyframes iconPop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.upload-icon {
+    transition: all 0.3s ease;
+}
+
+.upload-icon.success {
+    animation: iconPop 0.5s ease;
+    color: var(--success-color);
+}
+
+.upload-icon.error {
+    animation: iconPop 0.5s ease;
+    color: var(--error-color);
+}
+
+/* File list animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.file-list li {
+    animation: slideIn 0.3s ease forwards;
+}
+
+/* Remove button hover effect */
+.remove-file {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.remove-file:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    background: rgba(231, 76, 60, 0.2);
+    box-shadow: 0 0 10px var(--error-color);
+}
+
+/* File type indicators */
+.file-icon.csv {
+    color: #2ecc71;
+}
+
+.file-icon.excel {
+    color: #3498db;
+}
+
+/* Drag over state enhancements */
+.drop-zone.drag-over {
+    border-color: var(--accent-color);
+    background: rgba(52, 152, 219, 0.1);
+    transform: scale(1.02);
+    box-shadow: 0 0 30px var(--glow-color);
+}
+
+.drop-zone.drag-over .upload-icon {
+    transform: scale(1.2);
+    color: var(--accent-color);
+}
+
+/* File count badge */
+.file-count {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+/* File size indicator */
+.file-size {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 0.5rem;
+} 
