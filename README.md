@@ -10,7 +10,7 @@ Transform your messy credit card statements into clean, uniform CSV files with t
 
 2.  **(Optional) Read Documentation:** Double-click `open_readme.bat` to view this documentation in Notepad.
 
-3.  **WEBSITE LINK = https://bharatpratap392.github.io/Credit-Card-Statement-Standardizer-/**
+3.  **WEBSITE LINK = https://bharatpratap392.github.io/Standardize-Card-Statement/**
 
 ---
 
