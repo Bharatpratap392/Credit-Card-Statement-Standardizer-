@@ -1,4 +1,4 @@
-# 💳 Credit Card Statement Standardizer
+# 💳 Standardize Card Statement
 
 Transform your messy credit card statements into clean, uniform CSV files with this easy-to-use web tool!
 
